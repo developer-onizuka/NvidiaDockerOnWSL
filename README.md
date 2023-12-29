@@ -91,6 +91,8 @@ Fri Dec 29 02:42:22 2023
 sudo docker pull nvidia/cuda:11.7.1-devel-ubuntu20.04
 sudo docker run -it --rm --runtime=nvidia --gpus all --name "cuda" nvidia/cuda:11.7.1-devel-ubuntu20.04
 ```
+
+# 7. Run Matrix Benchmark (行列演算)
 ```
 apt update
 apt install git -y
