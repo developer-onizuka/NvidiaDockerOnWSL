@@ -71,7 +71,7 @@ sudo apt update
 sudo apt install nvidia-container-toolkit -y
 ```
 
-# 5. Restart the docker service and some containers
+# 4-2. Restart the docker service and some containers
 ```
 $ sudo service docker restart
 ```
