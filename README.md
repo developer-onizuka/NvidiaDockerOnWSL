@@ -17,7 +17,7 @@ Ubuntu (既定)
 > wsl -d Ubuntu uname -r
 5.15.133.1-microsoft-standard-WSL2
 ```
-```
+
 Start WSL
 ```
 wsl
