@@ -54,7 +54,7 @@ root@592053d30c30:/#
 ```
 Check nvidia-smi
 ```
-root@592053d30c30:/#  nvidia-smi
+root@592053d30c30:/# nvidia-smi
 Fri Dec 29 02:42:22 2023
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 515.48.07    Driver Version: 516.40       CUDA Version: 11.7     |
