@@ -1,6 +1,10 @@
 # NvidiaDockerOnWSL
 
-# 1. Install WSL on Windows10 (22H2)
+# 1. Install Nvidia Driver
+Go to the URL below:
+> https://www.nvidia.com/Download/index.aspx?lang=en-us
+
+# 2. Install WSL on Windows10 (22H2)
 Install WSL
 ```
 > wsl --install
@@ -23,11 +27,26 @@ Start WSL
 > wsl
 ```
 
-# 2. Install Nvidia Driver
-Go to the URL below:
-> https://www.nvidia.com/Download/index.aspx?lang=en-us
+# 3. Install Docker
+```
+sudo apt install ca-certificates curl gnupg -y
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+```
+```
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+```
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
 
-# 3. Install CUDA in your Ubuntu on WSL
+
+# 4. Install CUDA in your Ubuntu on WSL
 ```
 sudo apt-key del 7fa2af80
 wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
@@ -35,13 +54,13 @@ sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda-repo-wsl-ubuntu-12-0-local_12.0.0-1_amd64.deb
 sudo dpkg -i cuda-repo-wsl-ubuntu-12-0-local_12.0.0-1_amd64.deb
 sudo cp /var/cuda-repo-wsl-ubuntu-12-0-local/cuda-*-keyring.gpg /usr/share/keyrings/
-sudo apt-get update
-sudo apt-get -y install cuda
+sudo apt update
+sudo apt install cuda -y
 ```
 
-# 4. Run the docker service and some containers
+# 5. Restart the docker service and some containers
 ```
-$ sudo service docker start
+$ sudo service docker restart
 ```
 ```
 $ sudo docker images
@@ -58,7 +77,7 @@ docker run -d --rm --name xeyes -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DIS
 
 # 5. Run an ubuntu container with GPU
 ```
-$ sudo docker run -it --rm --gpus all --name "ubuntu" ubuntu:latest
+$ sudo docker run -it --rm --gpus all --name "ubuntu" ubuntu:20.04
 root@592053d30c30:/# 
 ```
 Check nvidia-smi
