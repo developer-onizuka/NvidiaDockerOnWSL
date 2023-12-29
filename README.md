@@ -20,7 +20,7 @@ Ubuntu (既定)
 
 Start WSL
 ```
-wsl
+> wsl
 ```
 
 # 2. Install Nvidia Driver
