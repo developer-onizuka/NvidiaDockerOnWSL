@@ -26,6 +26,12 @@ Ubuntu (既定)
 > wsl
 ```
 
+# Appendix: sudo without password
+```
+# sudo visudo
+<username> ALL=NOPASSWD: ALL
+```
+
 # 3. Install Docker
 # 3-1. Install Docker via Docker Desktop for Windows
 > https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-containers
