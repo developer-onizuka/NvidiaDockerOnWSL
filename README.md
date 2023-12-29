@@ -85,3 +85,59 @@ Fri Dec 29 02:42:22 2023
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ```
+
+# 6. Pull and Run the CUDA and Nvidia-Cuda-Toolkit as a Container
+```
+sudo docker pull nvidia/cuda:11.7.1-devel-ubuntu20.04
+sudo docker run -it --rm --runtime=nvidia --gpus all --name "cuda" nvidia/cuda:11.7.1-devel-ubuntu20.04
+```
+```
+apt update
+apt install git -y
+```
+```
+cd /tmp
+git clone https://github.com/developer-onizuka/matrix
+cd matrix
+apt install libssl-dev -y
+./gcc.sh
+```
+```
+# ls 
+-rw-r--r-- 1 root root   2463 Dec 29 07:34 matrix_omp.c
+-rw-r--r-- 1 root root   4484 Dec 29 07:34 matrix_gds.cu
+-rw-r--r-- 1 root root   2993 Dec 29 07:34 matrix.cu
+-rw-r--r-- 1 root root   2147 Dec 29 07:34 matrix.c
+-rwxr-xr-x 1 root root    401 Dec 29 07:34 gcc.sh
+-rw-r--r-- 1 root root   1473 Dec 29 07:34 README.md
+-rwxr-xr-x 1 root root  16992 Dec 29 07:36 matrix.o
+-rwxr-xr-x 1 root root  17592 Dec 29 07:36 matrix_omp.o
+-rwxr-xr-x 1 root root 822624 Dec 29 07:36 matrix.co
+-rwxr-xr-x 1 root root 831256 Dec 29 07:36 matrix_gds.co
+```
+```
+# ./matrix.co
+```
+```
+$ nvidia-smi
+Fri Dec 29 16:40:55 2023
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.48.07    Driver Version: 516.40       CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Quadro P620         On   | 00000000:01:00.0  On |                  N/A |
+| 46%   61C    P0    N/A /  N/A |    440MiB /  2048MiB |     52%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1641      C   /matrix.co                      N/A      |
++-----------------------------------------------------------------------------+
+```
