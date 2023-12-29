@@ -3,11 +3,20 @@
 # 1. Install WSL on Windows10 (22H2)
 Install WSL
 ```
-wsl --install
+> wsl --install
 ```
 Check the version of WSL
 ```
-wsl --version
+> wsl --version
+```
+```
+> wsl -l
+Linux 用 Windows サブシステム ディストリビューション:
+Ubuntu (既定)
+
+> wsl -d Ubuntu uname -r
+5.15.133.1-microsoft-standard-WSL2
+```
 ```
 Start WSL
 ```
