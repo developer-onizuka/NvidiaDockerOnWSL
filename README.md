@@ -121,7 +121,7 @@ Fri Dec 29 02:42:22 2023
 # 6. Pull and Run the CUDA and Nvidia-Cuda-Toolkit as a Container
 ```
 sudo docker pull nvidia/cuda:11.7.1-devel-ubuntu20.04
-sudo docker run -it --rm --runtime=nvidia --gpus all --name "cuda" nvidia/cuda:11.7.1-devel-ubuntu20.04
+sudo docker run -it --rm --gpus all --name "cuda" nvidia/cuda:11.7.1-devel-ubuntu20.04
 ```
 
 # 7. Run Matrix Benchmark (行列演算)
