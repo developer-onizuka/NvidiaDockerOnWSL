@@ -1,15 +1,15 @@
 # NvidiaDockerOnWSL
 
 # 1. Install Nvidia Driver
-Go to the URL below:
+- Go to the URL below:
 > https://www.nvidia.com/Download/index.aspx?lang=en-us
 
 # 2. Install WSL on Windows10 (22H2)
-Install WSL
+- Install WSL
 ```
 > wsl --install
 ```
-Check the version of WSL
+- Check the version of WSL
 ```
 > wsl --version
 ```
@@ -21,13 +21,16 @@ Ubuntu (既定)
 > wsl -d Ubuntu uname -r
 5.15.133.1-microsoft-standard-WSL2
 ```
-
-Start WSL
+- Start WSL
 ```
 > wsl
 ```
 
 # 3. Install Docker
+# 3-1. Install Docker via Docker Desktop for Windows
+> https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-containers
+
+# 3-2. Install Docker via CLI
 ```
 sudo apt install ca-certificates curl gnupg -y
 sudo install -m 0755 -d /etc/apt/keyrings
