@@ -33,6 +33,8 @@ Ubuntu (既定)
 ```
 
 # 3. Install Docker
+I recommend the step of CLI. See #3-2.
+
 # 3-1. Install Docker via Docker Desktop for Windows
 > https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-containers
 
