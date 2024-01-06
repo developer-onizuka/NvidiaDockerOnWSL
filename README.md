@@ -129,7 +129,7 @@ Fri Dec 29 02:42:22 2023
 +-----------------------------------------------------------------------------+
 ```
 
-# 5-1. mount a directory from container
+# 5-1. Mount a directory from container
 ```
 $ sudo docker run -it --rm --gpus all -v /mnt/c/Temp:/mnt --name "ubuntu" ubuntu:20.04
 ```
