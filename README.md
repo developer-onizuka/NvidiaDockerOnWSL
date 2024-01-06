@@ -129,6 +129,15 @@ Fri Dec 29 02:42:22 2023
 +-----------------------------------------------------------------------------+
 ```
 
+# 5-1. mount a directory from container
+```
+$ sudo docker run -it --rm --gpus all -v /mnt/c/Temp:/mnt --name "ubuntu" ubuntu:20.04
+```
+```
+$ mount |grep mnt
+C:\ on /mnt type 9p (rw,noatime,dirsync,aname=drvfs;path=C:\;uid=1000;gid=1000;symlinkroot=/mnt/,mmap,access=client,msize=65536,trans=fd,rfd=5,wfd=5)
+```
+
 # 6. Pull and Run the CUDA and Nvidia-Cuda-Toolkit as a Container
 ```
 sudo docker pull nvidia/cuda:11.7.1-devel-ubuntu20.04
